@@ -9,6 +9,18 @@ const decodeHtml = (html) => {
 
 const Qbox = (props) => {
   const { question, index, options, onSelectAnswer } = props;
+  const [selectedAnswer, setSelectedAnswer] = useState(userAnswers[index] || "");
+
+  useEffect(() => {
+    // Whenever userAnswers or index changes, update the selectedAnswer state
+    setSelectedAnswer(userAnswers[index] || "");
+  }, [userAnswers, index]);
+
+  const handleOptionChange = (e) => {
+    const selectedOption = e.target.value;
+    setSelectedAnswer(selectedOption);  // Update the local state immediately
+    onSelectAnswer(index, selectedOption); // Pass the selected option to the parent (QuizApp)
+  };
 
   const handleOptionChange = (e) => {
     onSelectAnswer(index, e.target.value); // Pass the selected option to the parent
@@ -28,6 +40,7 @@ const Qbox = (props) => {
                 id={`option-${index}-${idx}`}
                 name={`question-${index}`} // Same name for all options in the question
                 value={op}
+                checked={selectedAnswer === op}
                 onChange={handleOptionChange}
               />
               <label htmlFor={`option-${index}-${idx}`}>{op}</label>
