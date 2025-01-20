@@ -1,5 +1,7 @@
 .question-tracker {
   display: flex;
+  margin-left:10px;
+  margin-right:10px;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
