@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ReportPage.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const decodeHtml = (html) => {
     const txt = document.createElement("textarea");
@@ -10,6 +10,7 @@ const decodeHtml = (html) => {
 
 const ReportPage = () => {
     const location = useLocation();
+    const navigate = useNavigate(); 
   const { questions: list, userAnswers, score } = location.state;
 
   
@@ -17,6 +18,11 @@ const ReportPage = () => {
     ...q,
     question: decodeHtml(q.question), 
   }));
+
+    // Function to navigate to the home page
+  const goHome = () => {
+    navigate("/");
+  };
 
 
   return (
@@ -43,6 +49,7 @@ const ReportPage = () => {
           ))}
         </tbody>
       </table>
+     <button className="home-button" onClick={goHome}>Go to Home</button>
     </div>
   );
 };
