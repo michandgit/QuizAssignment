@@ -79,7 +79,16 @@ const QuizApp = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    const savedState = JSON.parse(localStorage.getItem('quizState'));
+    if (savedState) {
+      setList(savedState.list);
+      setTimeRemaining(savedState.timeRemaining);
+      setUserAnswers(savedState.userAnswers);
+      setVisitedQuestions(new Set(savedState.visitedQuestions));
+      setCurrentQuestion(savedState.currentQuestion);
+    } else {
+      fetchData();
+    }
   }, []);
 
   const updateAnswer = (questionIdx, selectedOption) => {
