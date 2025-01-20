@@ -1,0 +1,31 @@
+.question-tracker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tracker-btn {
+  width: 40px;
+  height: 40px;
+  /* border: 1px solid black; */
+  border:none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.tracker-btn.visited {
+  /* background-color: #4caf50; Green for visited */
+  background-color: rgb(182, 180, 180);
+  color: black;
+}
+
+.tracker-btn.unvisited {
+  /* background-color: #f44336; Red for unvisited */
+  background-color: rgb(247, 241, 241);
+  color: black;
+}
+

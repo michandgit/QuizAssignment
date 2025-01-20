@@ -1,0 +1,44 @@
+.box{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    justify-content:flex-start;
+    align-items: flex-start;
+    width:90%;
+    height:40%;
+    background-color: rgb(243, 239, 234);
+    border-radius: 10px;
+    font-size: 18px;
+}
+.box ul{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.box li{
+    list-style: none;
+    display: flex;
+    gap:10px;
+
+
+}
+
+.box li input[type='checkbox']{
+    width:25px;
+    height:25px;
+}
+
+@media(max-width:400px){
+    #ques{
+        font-size: 16px;
+    }
+    #ullist li{
+        font-size: 14px;
+    }
+    .check{
+        width:20px;
+        height:20px;
+    }
+}
+

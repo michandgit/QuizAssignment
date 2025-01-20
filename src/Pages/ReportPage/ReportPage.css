@@ -1,0 +1,38 @@
+.report-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+.uinfo{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+tr:nth-child(odd){
+  background-color: rgb(235, 191, 255);
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
