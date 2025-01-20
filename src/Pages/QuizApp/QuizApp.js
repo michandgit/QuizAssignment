@@ -91,6 +91,20 @@ const QuizApp = () => {
     }
   }, []);
 
+  useEffect(() => {
+    // Save state to localStorage whenever the state changes
+    localStorage.setItem(
+      'quizState',
+      JSON.stringify({
+        list,
+        timeRemaining,
+        userAnswers,
+        visitedQuestions: Array.from(visitedQuestions),
+        currentQuestion,
+      })
+    );
+  }, [list, timeRemaining, userAnswers, visitedQuestions, currentQuestion]);
+
   const updateAnswer = (questionIdx, selectedOption) => {
     setUserAnswers((prevAnswers) => ({
       ...prevAnswers,
