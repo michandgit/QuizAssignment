@@ -22,7 +22,7 @@ const Qbox = (props) => {
         {options.map((op, idx) => {
           return (
             <li key={idx}>
-              <input className="check" type="checkbox" id={`option-${idx}`} 
+              <input  type="radio" id={`option-${idx}`} 
               name={`question-${idx}`}
               value={op}
               onChange={handleOptionChange} />
