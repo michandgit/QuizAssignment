@@ -1,6 +1,73 @@
-# Getting Started with Create React App
+
 Project Live link : https://quiz-assignment-silk.vercel.app/
 <br/>
+
+# Quiz Application
+
+## Overview
+This project is a dynamic Quiz Application built with React. It fetches questions from the [Open Trivia Database API](https://opentdb.com/) and presents them to the user in a timed quiz format. Key features include:
+- Shuffling question options to ensure randomness.
+- A timer with automatic submission when time runs out.
+- Question navigation via a tracker to view and revisit answered or unanswered questions.
+- Submission validation to ensure all questions are addressed before completing the quiz.
+- A summary report page displaying the user's score and detailed question/answer data.
+
+### Key Components
+1. **`Qbox`**: Displays individual questions and answer options.
+2. **`QuestionTracker`**: Helps users navigate between questions.
+3. **`SubmissionGuard`**: Ensures the quiz is submitted correctly.
+4. **Timer**: Automatically handles quiz submission when the time expires.
+
+## Setup Instructions
+### Prerequisites
+- Node.js (v14+)
+- npm or yarn
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the application:
+   ```bash
+   npm start
+   ```
+
+## Usage
+1. The application fetches 15 quiz questions on load.
+2. Select an answer for each question.
+3. Navigate using the Question Tracker to review or revisit questions.
+4. Submit the quiz manually or let the timer handle submission.
+
+## Assumptions
+1. The application assumes consistent availability of the Open Trivia Database API.
+2. User answers are stored in a local state for the duration of the quiz session.
+3. The quiz includes 15 questions with a 30-minute timer as the default.
+
+## Challenges Faced
+1. **Dynamic Option Shuffling**: Ensuring options are shuffled without altering the correct answer's validity.
+   - **Solution**: Implemented a utility function to shuffle arrays.
+2. **Time Management**: Managing a countdown timer alongside React's state updates.
+   - **Solution**: Used `setInterval` and ensured cleanup with `clearInterval` to avoid memory leaks.
+3. **Question Navigation**: Handling visited and unvisited questions dynamically.
+   - **Solution**: Maintained a `visitedQuestions` set to track and display question statuses accurately.
+4. **Error Handling with API Calls**: Ensuring the app does not crash on API failure.
+   - **Solution**: Added `try-catch` blocks and logged errors to the console for debugging.
+
+## Future Enhancements
+1. Adding category and difficulty selection before starting the quiz.
+2. Storing user progress to local storage to allow resumption of incomplete quizzes.
+3. Enhancing the UI for mobile responsiveness.
+
+
+
+
+# Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
