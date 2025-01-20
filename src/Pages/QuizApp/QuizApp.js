@@ -149,6 +149,7 @@ const QuizApp = () => {
           {list.map((q, idx) => (
             <Qbox
               key={idx}
+              ref={(el) => questionRefs.current[idx] = el}
               index={idx}
               question={q.question}
               correct={q.correct_answer}
