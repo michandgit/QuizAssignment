@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import Qbox from "../../Components/Qbox/Qbox";
 import "./QuizApp.css";
@@ -24,6 +24,13 @@ const QuizApp = () => {
   const [visitedQuestions, setVisitedQuestions] = useState(new Set());
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const navigate = useNavigate();
+
+  const questionRefs = useRef([]);
+
+  // Add question ref dynamically based on the number of questions
+  useEffect(() => {
+    questionRefs.current = questionRefs.current.slice(0, list.length);
+  }, [list]);
 
   const handleSubmit = () => {
     setIsSubmitted(true);
@@ -112,8 +119,17 @@ const QuizApp = () => {
     }));
     setVisitedQuestions((prevVisited) => new Set(prevVisited).add(questionIdx));
   };
+ 
+
   const handleQuestionSelect = (index) => {
     setCurrentQuestion(index);
+    // Scroll to the selected question
+    if (questionRefs.current[index]) {
+      questionRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   return (
